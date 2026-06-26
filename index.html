@@ -1,36 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBGO Drawing Checklist</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-   <h1>🎨 PBGO Drawing Checklist</h1>
-
+<h1>🎨 PBGO Drawing Checklist</h1>
 <p>Theme: Napoleonic Wars</p>
 
-<button id="spinButton">🎲 Spin</button>
-<button id="completeButton">✅ Mark as Completed</button>
+<div class="card">
+    <button id="spinButton">🎲 Spin</button>
+    <button id="completeButton">✅ Mark as Completed</button>
 
-<h2 id="country">No country selected</h2>
+    <h2 id="country">No country selected</h2>
 
-<!-- PROGRESS BAR -->
-<div id="progressContainer">
-    <div id="bar"></div>
-</div>
-
-<h3 id="progress">0 / 0 completed</h3>
-
-<h3>📋 Completed Countries</h3>
-<ul id="list"></ul>
+    <div id="progressContainer">
+        <div id="bar"></div>
+    </div>
 
     <h3 id="progress">0 / 0 completed</h3>
+</div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
-
-</body>
-</html>
+<div class="card">
+    <h3>📋 Completed Countries</h3>
+    <ul id="list"></ul>
+</div>
