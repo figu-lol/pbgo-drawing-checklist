@@ -1,27 +1,41 @@
 let currentCountry = "";
 
-// Load saved completed countries (or empty list)
+// Load saved data
 let completed = JSON.parse(localStorage.getItem("completedCountries")) || [];
 
 // Elements
 const spinButton = document.getElementById("spinButton");
-const countryText = document.getElementById("country");
 const completeButton = document.getElementById("completeButton");
+const countryText = document.getElementById("country");
+const list = document.getElementById("list");
+const progress = document.getElementById("progress");
 
-// Spin button
+// Update UI
+function updateUI() {
+    list.innerHTML = "";
+
+    completed.forEach(country => {
+        const li = document.createElement("li");
+        li.textContent = "✔ " + country;
+        list.appendChild(li);
+    });
+
+    progress.textContent = `${completed.length} / ${countries.length} completed`;
+}
+
+// Spin random country
 spinButton.addEventListener("click", () => {
-    const randomIndex = Math.floor(Math.random() * countries.length);
-    currentCountry = countries[randomIndex];
+    const index = Math.floor(Math.random() * countries.length);
+    currentCountry = countries[index];
 
     countryText.textContent = currentCountry;
 
-    // show if already done
     if (completed.includes(currentCountry)) {
-        countryText.textContent += " ✔ (already completed)";
+        countryText.textContent += " ✔ already done";
     }
 });
 
-// Complete button
+// Mark as completed
 completeButton.addEventListener("click", () => {
     if (!currentCountry) return;
 
@@ -30,5 +44,8 @@ completeButton.addEventListener("click", () => {
         localStorage.setItem("completedCountries", JSON.stringify(completed));
     }
 
-    alert(currentCountry + " saved as completed!");
+    updateUI();
 });
+
+// First load
+updateUI();
