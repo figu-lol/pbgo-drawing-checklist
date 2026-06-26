@@ -1,59 +1,77 @@
 body {
     font-family: Arial, sans-serif;
     background: #f4f1e8;
-    color: #222;
     text-align: center;
     margin: 0;
     padding: 40px;
+    color: #222;
 }
 
 h1 {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 p {
-    font-size: 18px;
     opacity: 0.8;
 }
 
+/* Buttons */
 button {
     padding: 10px 20px;
     margin: 10px;
-    font-size: 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    background: #2c3e50;
-    color: white;
+    font-size: 16px;
     transition: 0.2s;
 }
 
-button:hover {
-    background: #34495e;
+button:active {
+    transform: scale(0.95);
 }
 
+/* Spin button glow */
 #spinButton {
-    font-size: 18px;
     background: #27ae60;
+    color: white;
+    font-size: 18px;
 }
 
 #spinButton:hover {
     background: #2ecc71;
+    box-shadow: 0 0 10px rgba(39,174,96,0.4);
 }
 
+/* Complete button */
 #completeButton {
     background: #2980b9;
+    color: white;
 }
 
 #completeButton:hover {
     background: #3498db;
 }
 
+/* Country display (IMPORTANT for animation) */
 #country {
-    margin-top: 30px;
-    font-size: 28px;
+    margin-top: 25px;
+    font-size: 32px;
+    min-height: 40px;
+    transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
+/* Checklist */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 4px;
+    font-size: 16px;
+}
+
+/* Progress bar */
 #progressContainer {
     width: 60%;
     height: 14px;
