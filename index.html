@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBGO Drawing Checklist</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>🎨 PBGO Drawing Checklist</h1>
 
-    <p>Theme: Napoleonic Wars</p>
+    <p id="themeText">Theme: Napoleonic Wars</p>
 
     <button id="spinButton">🎲 Spin</button>
-
-    <h2 id="country">No country selected yet.</h2>
-
     <button id="completeButton">✅ Mark as Completed</button>
+
+    <h2 id="country">No country selected</h2>
+
+    <h3>📋 Completed Countries</h3>
+    <ul id="list"></ul>
+
+    <h3 id="progress">0 / 0 completed</h3>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
