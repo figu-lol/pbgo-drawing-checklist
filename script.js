@@ -10,6 +10,14 @@ const countryText = document.getElementById("country");
 const list = document.getElementById("list");
 const progress = document.getElementById("progress");
 
+// Progress bar (we will add it in HTML)
+const progressBar = document.getElementById("bar");
+
+// Get remaining countries
+function getRemainingCountries() {
+    return countries.filter(c => !completed.includes(c));
+}
+
 // Update UI
 function updateUI() {
     list.innerHTML = "";
@@ -20,22 +28,36 @@ function updateUI() {
         list.appendChild(li);
     });
 
+    const percent = Math.round((completed.length / countries.length) * 100);
+
     progress.textContent = `${completed.length} / ${countries.length} completed`;
+
+    if (progressBar) {
+        progressBar.style.width = percent + "%";
+    }
+
+    // ALL DONE SCREEN
+    if (completed.length === countries.length) {
+        countryText.textContent = "🏁 ALL COUNTRIES COMPLETED!";
+    }
 }
 
-// Spin random country
+// Spin (NO REPEATS)
 spinButton.addEventListener("click", () => {
-    const index = Math.floor(Math.random() * countries.length);
-    currentCountry = countries[index];
+    const remaining = getRemainingCountries();
+
+    if (remaining.length === 0) {
+        countryText.textContent = "🏁 Everything completed!";
+        return;
+    }
+
+    const index = Math.floor(Math.random() * remaining.length);
+    currentCountry = remaining[index];
 
     countryText.textContent = currentCountry;
-
-    if (completed.includes(currentCountry)) {
-        countryText.textContent += " ✔ already done";
-    }
 });
 
-// Mark as completed
+// Complete
 completeButton.addEventListener("click", () => {
     if (!currentCountry) return;
 
@@ -47,5 +69,5 @@ completeButton.addEventListener("click", () => {
     updateUI();
 });
 
-// First load
+// Start
 updateUI();
